@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="239.0" prefWidth="292.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="extractor.address.view.JsonLayoutController">
+   <top>
+      <AnchorPane prefHeight="254.0" prefWidth="292.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="feedName" layoutX="129.0" layoutY="14.0" />
+            <TextField fx:id="feedDisplayName" layoutX="129.0" layoutY="39.0" />
+            <TextField fx:id="feedProvider" layoutX="129.0" layoutY="64.0" />
+            <TextField fx:id="feedSummary" layoutX="129.0" layoutY="89.0" />
+            <TextField fx:id="techData" layoutX="129.0" layoutY="114.0" />
+            <TextField fx:id="reportName" layoutX="129.0" layoutY="139.0" />
+            <Label layoutX="14.0" layoutY="18.0" text="Feed Name" />
+            <Label layoutX="14.0" layoutY="43.0" text="Feed Display Name" />
+            <Label layoutX="14.0" layoutY="68.0" text="Feed Provider URL" />
+            <Label layoutX="14.0" layoutY="93.0" text="Feed Summary" />
+            <Label layoutX="14.0" layoutY="118.0" text="Feed Technical Data" />
+            <Label layoutX="14.0" layoutY="143.0" text="Report Name" />
+            <Button fx:id="createButton" layoutX="5.0" layoutY="215.0" mnemonicParsing="false" onAction="#createFeed" text="Create Feed" />
+            <RadioButton fx:id="includeIPv4" layoutX="129.0" layoutY="181.0" mnemonicParsing="false" selected="true" text="Include IPv4s" />
+            <RadioButton fx:id="includeMD5" layoutX="129.0" layoutY="164.0" mnemonicParsing="false" selected="true" text="Include MD5s" />
+            <RadioButton fx:id="includeDomain" layoutX="129.0" layoutY="198.0" mnemonicParsing="false" selected="true" text="Include Domains" />
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

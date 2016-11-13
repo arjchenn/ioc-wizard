@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="extractor.address.view.PasteLayoutController">
+   <top>
+      <TextArea fx:id="inputText" prefHeight="500.0" prefWidth="500.0" BorderPane.alignment="CENTER" />
+   </top>
+   <bottom>
+      <Button fx:id="loadButton" mnemonicParsing="false" onAction="#loadText" text="Load" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

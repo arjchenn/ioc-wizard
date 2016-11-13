@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="extractor.address.view.SaveLayoutController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="saveButton" layoutX="124.0" layoutY="138.0" mnemonicParsing="false" onAction="#save" text="Save" />
+            <RadioButton fx:id="md5Button" layoutX="14.0" layoutY="30.0" mnemonicParsing="false" text="MD5" />
+            <RadioButton fx:id="shaButton" layoutX="14.0" layoutY="55.0" mnemonicParsing="false" text="SHA" />
+            <RadioButton fx:id="ipButton" layoutX="14.0" layoutY="80.0" mnemonicParsing="false" text="IPv4" />
+            <RadioButton fx:id="domainButton" layoutX="14.0" layoutY="105.0" mnemonicParsing="false" text="Possible Domains" />
+            <Label layoutX="98.0" layoutY="22.0" text="Select IOCs To Save" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
