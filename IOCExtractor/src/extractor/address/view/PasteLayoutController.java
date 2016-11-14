@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 
 public class PasteLayoutController {
+
 	@FXML private TextArea inputText;
 	@FXML private Button loadButton;
 

@@ -45,13 +45,13 @@ public class Lookup{
 
 		int i;
 		if (entity != null) {
-		    InputStream instream = entity.getContent();
-		    while((i=instream.read())!=-1) next.append((char)i);
+			InputStream instream = entity.getContent();
+			while((i=instream.read())!=-1) next.append((char)i);
 
-		    instream.close();
+			instream.close();
 
-		    System.out.println("next: " + next.toString());
-		    return next.toString();
+			System.out.println("next: " + next.toString());
+			return next.toString();
 		}else {
 			return null;
 		}

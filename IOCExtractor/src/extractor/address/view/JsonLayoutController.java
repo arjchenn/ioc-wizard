@@ -77,7 +77,7 @@ public class JsonLayoutController {
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Save File");
 		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("JSON files (*.json)", "*.json");
-        fileChooser.getExtensionFilters().add(extFilter);
+		fileChooser.getExtensionFilters().add(extFilter);
 
 		File outFile = fileChooser.showSaveDialog(new Stage());
 		BufferedWriter writer = new BufferedWriter(new FileWriter(outFile.getAbsolutePath()));

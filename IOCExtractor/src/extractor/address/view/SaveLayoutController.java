@@ -34,7 +34,7 @@ public class SaveLayoutController {
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Save File");
 		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TEXT files (*.txt)", "*.txt");
-        fileChooser.getExtensionFilters().add(extFilter);
+		fileChooser.getExtensionFilters().add(extFilter);
 
 		File outFile = fileChooser.showSaveDialog(new Stage());
 		BufferedWriter writer = new BufferedWriter(new FileWriter(outFile.getAbsoluteFile()));

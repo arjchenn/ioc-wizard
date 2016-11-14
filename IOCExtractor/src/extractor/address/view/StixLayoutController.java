@@ -71,7 +71,7 @@ public class StixLayoutController {
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Save File");
 		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("STIX files (*.stix)", "*.stix");
-        fileChooser.getExtensionFilters().add(extFilter);
+		fileChooser.getExtensionFilters().add(extFilter);
 
 		File outFile = fileChooser.showSaveDialog(new Stage());
 		BufferedWriter writer = new BufferedWriter(new FileWriter(outFile.getAbsolutePath()));
@@ -97,19 +97,14 @@ public class StixLayoutController {
 		//Create indicators for each of the md5s
 		for(String i : md5){
 			XMLGregorianCalendar now = DatatypeFactory.newInstance()
-					.newXMLGregorianCalendar(
-							new GregorianCalendar(TimeZone.getTimeZone("UTC")));
+					.newXMLGregorianCalendar(new GregorianCalendar(TimeZone.getTimeZone("UTC")));
 
 			FileObjectType fileObject = new FileObjectType()
 					.withHashes(new HashListType(new ArrayList<HashType>() {
 						{
 							add(new HashType()
-									.withType(
-											new HashNameVocab10()
-													.withValue("MD5"))
-									.withSimpleHashValue(
-											new SimpleHashValueType()
-													.withValue(i)));
+									.withType(new HashNameVocab10().withValue("MD5"))
+									.withSimpleHashValue(new SimpleHashValueType().withValue(i)));
 						}
 					}));
 
@@ -122,8 +117,7 @@ public class StixLayoutController {
 			observable.setObject(obj);
 
 			final Indicator indicator = new Indicator()
-					.withId(new QName("http://example.com/", "indicator-"
-							+ UUID.randomUUID().toString(), "example"))
+					.withId(new QName("http://example.com/", "indicator-" + UUID.randomUUID().toString(), "example"))
 					.withTimestamp(now)
 					.withTitle("MD5 for " + name.getText())
 					.withObservable(observable);
@@ -134,19 +128,14 @@ public class StixLayoutController {
 		//Create indicators for each of the sha256s
 		for(String i : sha256){
 			XMLGregorianCalendar now = DatatypeFactory.newInstance()
-					.newXMLGregorianCalendar(
-							new GregorianCalendar(TimeZone.getTimeZone("UTC")));
+					.newXMLGregorianCalendar(new GregorianCalendar(TimeZone.getTimeZone("UTC")));
 
 			FileObjectType fileObject = new FileObjectType()
 					.withHashes(new HashListType(new ArrayList<HashType>() {
 						{
 							add(new HashType()
-									.withType(
-											new HashNameVocab10()
-													.withValue("SHA256"))
-									.withSimpleHashValue(
-											new SimpleHashValueType()
-													.withValue(i)));
+									.withType(new HashNameVocab10().withValue("SHA256"))
+									.withSimpleHashValue(new SimpleHashValueType().withValue(i)));
 						}
 					}));
 
@@ -159,8 +148,7 @@ public class StixLayoutController {
 			observable.setObject(obj);
 
 			final Indicator indicator = new Indicator()
-					.withId(new QName("http://example.com/", "indicator-"
-							+ UUID.randomUUID().toString(), "example"))
+					.withId(new QName("http://example.com/", "indicator-" + UUID.randomUUID().toString(), "example"))
 					.withTimestamp(now)
 					.withTitle("SHA256 for " + name.getText())
 					.withObservable(observable);
@@ -171,33 +159,26 @@ public class StixLayoutController {
 		//Create indicators for each of the sha1s
 		for(String i : sha1){
 			XMLGregorianCalendar now = DatatypeFactory.newInstance()
-					.newXMLGregorianCalendar(
-							new GregorianCalendar(TimeZone.getTimeZone("UTC")));
+					.newXMLGregorianCalendar(new GregorianCalendar(TimeZone.getTimeZone("UTC")));
 
 			FileObjectType fileObject = new FileObjectType()
 					.withHashes(new HashListType(new ArrayList<HashType>() {
 						{
 							add(new HashType()
-									.withType(
-											new HashNameVocab10()
-													.withValue("SHA1"))
-									.withSimpleHashValue(
-											new SimpleHashValueType()
-													.withValue(i)));
+									.withType(new HashNameVocab10().withValue("SHA1"))
+									.withSimpleHashValue(new SimpleHashValueType().withValue(i)));
 						}
 					}));
 
 			ObjectType obj = new ObjectType().withProperties(fileObject)
 					.withId(new QName("file-" + UUID.randomUUID().toString(), "example"));
 
-			Observable observable = new Observable().withId(new QName("observable-"
-					+ UUID.randomUUID().toString(), "example"));
+			Observable observable = new Observable().withId(new QName("observable-" + UUID.randomUUID().toString(), "example"));
 
 			observable.setObject(obj);
 
 			final Indicator indicator = new Indicator()
-					.withId(new QName("http://example.com/", "indicator-"
-							+ UUID.randomUUID().toString(), "example"))
+					.withId(new QName("http://example.com/", "indicator-" + UUID.randomUUID().toString(), "example"))
 					.withTimestamp(now)
 					.withTitle("SHA1 for " + name.getText())
 					.withObservable(observable);
@@ -209,8 +190,7 @@ public class StixLayoutController {
 		IndicatorsType indicators = new IndicatorsType(indList);
 
 		XMLGregorianCalendar now = DatatypeFactory.newInstance()
-				.newXMLGregorianCalendar(
-						new GregorianCalendar(TimeZone.getTimeZone("UTC")));
+				.newXMLGregorianCalendar(new GregorianCalendar(TimeZone.getTimeZone("UTC")));
 
 		//Create a STIX package from the indicators and write it to the file in the appropriate XML format
 		STIXPackage stixPackage = new STIXPackage()

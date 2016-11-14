@@ -23,15 +23,15 @@ public class DomainLayoutController {
 
 	//Fill the checklistview with the domain list from the root layout
 	public void fill(){
-
+		
 		checkListView.setItems(FXCollections.observableArrayList(rlc.getDomains()));
-
-        checkListView.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
-		     public void onChanged(ListChangeListener.Change<? extends String> c) {
-		         ObservableList<String> newList = checkListView.getCheckModel().getCheckedItems();
-		         rlc.getdomainTxt().clear();
-		         for (String x : newList) rlc.getdomainTxt().appendText(x + "\n");
-		     }
+		
+		checkListView.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
+			public void onChanged(ListChangeListener.Change<? extends String> c) {
+				ObservableList<String> newList = checkListView.getCheckModel().getCheckedItems();
+		         	rlc.getdomainTxt().clear();
+		         	for (String x : newList) rlc.getdomainTxt().appendText(x + "\n");
+		     	}
 		 });
 
 	}

@@ -28,8 +28,8 @@ import javafx.scene.control.TextInputDialog;
 
 public class RootLayoutController {
 
-    @FXML private MenuBar bar;
-    @FXML private MenuItem refresh;
+	@FXML private MenuBar bar;
+	@FXML private MenuItem refresh;
 	@FXML private MenuItem fileOpen;
 	@FXML private MenuItem fileSave;
 	@FXML private MenuItem textOpen;
@@ -47,10 +47,10 @@ public class RootLayoutController {
 	@FXML private Button editButton;
 
 	private IOCObject iocs;
-    private Main main;
+	private Main main;
 	private LookupService ls;
 
-    //To hold all of the loaded iocs
+	//To hold all of the loaded iocs
 	private HashSet<String> shas;
 	private HashSet<String> domains;
 	private HashSet<String> md5s;
@@ -139,17 +139,17 @@ public class RootLayoutController {
 
 		//If the service is cancelled, an alert is displayed accordingly and the UI returns to normal
 		ls.setOnCancelled(new EventHandler<WorkerStateEvent>() {
-            @Override
-            public void handle(WorkerStateEvent t) {
-            	for(String x : toRemove) newShas.remove(x);
+			@Override
+			public void handle(WorkerStateEvent t) {
+				for(String x : toRemove) newShas.remove(x);
 				Alert alert = new Alert(AlertType.INFORMATION);
 				alert.setTitle("Cancelled");
 				alert.setContentText("Found " + foundList.size());
 				alert.setHeaderText("Cancelled");
 				alert.showAndWait();
 
-        		toRemove.clear();
-            	foundList.clear();
+				toRemove.clear();
+				foundList.clear();
 				statusLabel.textProperty().unbind();
 				waitLabel.textProperty().unbind();
 				md5Txt.textProperty().unbind();
@@ -157,24 +157,24 @@ public class RootLayoutController {
 				statusLabel.setText("");
 				md5Button.setText("Get MD5 From SHA With VirusTotal");
 				findStart = false;
-		        bar.setDisable(false);
-		        clearButton.setDisable(false);
-            }
+				bar.setDisable(false);
+				clearButton.setDisable(false);
+			}
 		});
 
 		//If the service fails due to a connection problem, an alert is displayed accordingly and the UI returns to normal
 		ls.setOnFailed(new EventHandler<WorkerStateEvent>() {
-            @Override
-            public void handle(WorkerStateEvent t) {
-            	for(String x : toRemove) newShas.remove(x);
+			@Override
+			public void handle(WorkerStateEvent t) {
+				for(String x : toRemove) newShas.remove(x);
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("Failed");
 				alert.setContentText("Found " + foundList.size());
 				alert.setHeaderText("Failed. Connection Problem?");
 				alert.showAndWait();
 
-        		toRemove.clear();
-            	foundList.clear();
+				toRemove.clear();
+				foundList.clear();
 				statusLabel.textProperty().unbind();
 				waitLabel.textProperty().unbind();
 				md5Txt.textProperty().unbind();
@@ -182,22 +182,22 @@ public class RootLayoutController {
 				statusLabel.setText("");
 				md5Button.setText("Get MD5 From SHA With VirusTotal");
 				findStart = false;
-		        bar.setDisable(false);
-		        clearButton.setDisable(false);
-            }
+				bar.setDisable(false);
+				clearButton.setDisable(false);
+			}
 		});
 
 		//If the service succeeds, an alert is displayed accordingly and the UI returns to normal
 		ls.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-            @Override
-            public void handle(WorkerStateEvent t) {
-            	if(newShas.isEmpty()){
-            		Alert alert = new Alert(AlertType.INFORMATION);
-    				alert.setTitle("Nothing New to Find");
-    				alert.setHeaderText("Nothing new to find");
-    				alert.showAndWait();
-            	}else{
-            		for(String x : toRemove) newShas.remove(x);
+			@Override
+			public void handle(WorkerStateEvent t) {
+				if(newShas.isEmpty()){
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("Nothing New to Find");
+					alert.setHeaderText("Nothing new to find");
+					alert.showAndWait();
+				}else{
+					for(String x : toRemove) newShas.remove(x);
 					Alert alert = new Alert(AlertType.INFORMATION);
 					alert.setTitle("MD5s Found");
 					alert.setContentText("Found " + foundList.size());
@@ -205,8 +205,8 @@ public class RootLayoutController {
 					alert.showAndWait();
 				}
 
-        		toRemove.clear();
-            	foundList.clear();
+				toRemove.clear();
+				foundList.clear();
 				statusLabel.textProperty().unbind();
 				waitLabel.textProperty().unbind();
 				md5Txt.textProperty().unbind();
@@ -214,21 +214,21 @@ public class RootLayoutController {
 				statusLabel.setText("");
 				md5Button.setText("Get MD5 From SHA With VirusTotal");
 				findStart = false;
-		        bar.setDisable(false);
-		        clearButton.setDisable(false);
-            }
+				bar.setDisable(false);
+				clearButton.setDisable(false);
+			}
 		});
 
 		//The LookupService is started and other UI functions are disabled as necessary. The button to call this method will now cancel the lookup service.
 		//The md5 text area, and ratelabel will be updated from the service
-        bar.setDisable(true);
-        clearButton.setDisable(true);
-        md5Button.setText("Cancel");
+		bar.setDisable(true);
+		clearButton.setDisable(true);
+		md5Button.setText("Cancel");
 		findStart = true;
 		waitLabel.textProperty().bind(ls.timeBinder);
 		statusLabel.textProperty().bind(ls.statusBinder);
 		md5Txt.textProperty().bind(ls.md5List);
-        ls.start();
+		ls.start();
 
 	}
 
@@ -390,7 +390,8 @@ public class RootLayoutController {
         LookupService(){
 
         	String nextmd5List = new String();
-			for (String y : md5s) nextmd5List = nextmd5List.concat(y + "\n");
+        	for (String y : md5s) nextmd5List = nextmd5List.concat(y + "\n");
+        	
         	md5List = new SimpleStringProperty(this, "");
         	md5List.set(nextmd5List);
         	statusBinder = new SimpleStringProperty(this, "");
