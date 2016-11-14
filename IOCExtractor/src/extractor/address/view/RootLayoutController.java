@@ -56,7 +56,6 @@ public class RootLayoutController {
 	private HashSet<String> md5s;
 	private HashSet<String> ips;
 
-	//private static final String defaultKey = "c495ee6730e1ae0f19e372d22334af10439e242821fb215642e8f938be07144d";
 	private String userKey;
 	private boolean findStart;
 
