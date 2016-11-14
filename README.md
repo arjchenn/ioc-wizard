@@ -5,12 +5,13 @@
 *	Lookup the equivalent MD5s hashes for particular SHA hashes with the VirusTotal API
 *	Create IOC feeds in both STIX and JSON formats, compatible with Carbon Black and McAfee monitoring services
 
-###Build:
+###Build:  
 requires Java 8
-	git clone https://github.com/arjchenn/ioc-wizard.git
-	mvn clean install
-	**Or, with Eclipse:**
-		Clone the repository in the git view: https://github.com/arjchenn/ioc-wizard.git
-		Import it as an existing maven project from the local repository
+	*git clone https://github.com/arjchenn/ioc-wizard.git  
+	*mvn clean install  
+	**Or, with Eclipse:**  
+		*Clone the repository in the git view: https://github.com/arjchenn/ioc-wizard.git  
+		*Import it as an existing maven project from the local repository  
+	
 
 ![ioctest](https://cloud.githubusercontent.com/assets/23390502/20253102/40c69558-a9f6-11e6-8262-42beb4200b6f.JPG)
